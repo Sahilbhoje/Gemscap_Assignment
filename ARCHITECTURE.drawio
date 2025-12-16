@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2025-12-16T00:00:00.000Z" agent="github-copilot" version="22.0.8">
+  <diagram id="arch" name="Architecture">
+    <mxGraphModel dx="1190" dy="730" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ingest" value="Binance WS (fstream)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="mdm" value="MarketDataManager\n(ticks buffer, resample)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="140" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="store" value="SQLite (ticks/ohlcv)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="300" y="270" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="analytics" value="Analytics (OLS, spread, z, ADF, corr)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="560" y="140" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="alerts" value="Alerts (z-threshold)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="560" y="270" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ui" value="Dash UI (charts, controls, upload, export)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="860" y="160" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="ingest" target="mdm" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="mdm" target="store" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="mdm" target="analytics" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="analytics" target="alerts" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="analytics" target="ui" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="store" target="analytics" style="endArrow=classic;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

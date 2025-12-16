@@ -1,0 +1,10 @@
+dash==2.18.2
+plotly==5.24.1
+websockets==12.0
+pandas==2.2.3
+numpy==2.1.3
+statsmodels==0.14.4
+scipy==1.13.1
+sqlite-utils==3.37
+python-dateutil==2.9.0.post0
+aiohttp==3.10.10
